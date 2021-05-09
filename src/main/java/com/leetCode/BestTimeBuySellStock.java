@@ -6,18 +6,17 @@ import java.util.Arrays;
 public class BestTimeBuySellStock {
 
     public int maxProfit(int[] prices) {
-        int maxValue = 0;
+        int minPrice = Integer.MAX_VALUE;
+        System.out.println(minPrice);
+        int maxPrice = 0;
 
-        for (int i = 0; i < prices.length-1; i++) {
-            for (int j = i+1; j < prices.length; j++) {
-                int price = prices[j] - prices[i];
-                if(maxValue < price) {
-                    maxValue = price;
-                }
-            }
+        for (int i = 0; i < prices.length; i++) {
+            minPrice = Math.min(minPrice, prices[i]);
+            System.out.println("minPrice : " + minPrice + ", price[i] : " + prices[i] + ", maxPrice : " + maxPrice);
+            maxPrice = Math.max(maxPrice, prices[i]-minPrice);
         }
 
-        return maxValue;
+        return maxPrice;
     }
 
     public static void main(String[] args) {

@@ -10,4 +10,8 @@
 ### 자바8을 사용하는이유 part 2
 - [ ] 스트레이지 패턴을 이용한 계산기 실습
 
-### 함수를 이용한 실습
+## 2일차
+### 함수를 이용한 실습 (Function, The Transformer)
+- [x] Function 활용
+- [x] identity 실습
+- [x] Consumer 실습

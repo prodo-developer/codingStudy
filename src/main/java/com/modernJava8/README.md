@@ -13,5 +13,9 @@
 ## 2일차
 ### 함수를 이용한 실습 (Function, The Transformer)
 - [x] Function 활용
-- [x] identity 실습
+- [x] Identity 실습
 - [x] Consumer 실습
+
+## 3일차
+- [x] Predicate 실습
+- [x] Supplier 실습

@@ -19,3 +19,6 @@
 ## 3일차
 - [x] Predicate 실습
 - [x] Supplier 실습
+
+## 4일차
+- [x] Functional Interface 실습

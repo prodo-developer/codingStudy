@@ -1,7 +1,10 @@
 package com.fastJava8;
 
+import com.fastJava8.model.Order;
+import com.fastJava8.model.OrderLine;
 import com.fastJava8.model.User;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -66,6 +69,40 @@ public class Chapter8Section4 {
                 .reduce(0, (x, y) -> x + y);
 
         System.out.println(friendCnt);
+        
+        // Order들의 총합 구하기
+        Order order1 = new Order()
+                .setId(1001L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(1000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000))));
 
+        Order order2 = new Order()
+                .setId(1002L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(3000))));
+
+        Order order3 = new Order()
+                .setId(1003L)
+                .setOrderLines(Arrays.asList(
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(1000)),
+                        new OrderLine()
+                                .setAmount(BigDecimal.valueOf(2000))));
+
+        List<Order> orders = Arrays.asList(order1, order2, order3);
+
+        BigDecimal orderSum = orders.stream()
+                .map(Order::getOrderLines) // Stream<List<OrderLine>>
+                .flatMap(List::stream)// flatMap을 통해 한번더 접근 Stream<OrderLine>
+                .map(OrderLine::getAmount) // Stream<BigDecimal>
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        System.out.println("값 : " + orderSum);
     }
 }

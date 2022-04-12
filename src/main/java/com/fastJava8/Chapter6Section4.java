@@ -8,6 +8,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Chapter6Section4 {
@@ -30,20 +31,14 @@ public class Chapter6Section4 {
                 .setEmailAddress("charlie@fastcampus.co.kr");
         List<User> users = Arrays.asList(user1, user2, user3);
 
-        List<String> emails = new ArrayList<>();
+        List<Optional<String>> emails = new ArrayList<>();
         for (User user: users) {
             if (!user.isVerified()) {
-                String email = user.getEmailAddress();
+                Optional<String> email = user.getEmailAddress();
                 emails.add(email);
             }
         }
         System.out.println(emails);
-
-        List<String> emails2 = users.stream()
-                .filter(user -> !user.isVerified())
-                .map(User::getEmailAddress)
-                .collect(Collectors.toList());
-        System.out.println(emails2);
 
         LocalDateTime now = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
         Order order1 = new Order()

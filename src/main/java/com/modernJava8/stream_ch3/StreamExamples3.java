@@ -30,20 +30,20 @@ public class StreamExamples3 {
                 .setEmailAddress("charlie@fastcampus.co.kr");
         List<User> users = Arrays.asList(user1, user2, user3);
 
-        List<String> emails = new ArrayList<>();
-        for (User user: users) {
-            if (!user.isVerified()) {
-                String email = user.getEmailAddress();
-                emails.add(email);
-            }
-        }
-        System.out.println(emails);
-
-        List<String> emails2 = users.stream()
-                .filter(user -> !user.isVerified())
-                .map(User::getEmailAddress)
-                .collect(Collectors.toList());
-        System.out.println(emails2);
+//        List<String> emails = new ArrayList<>();
+//        for (User user: users) {
+//            if (!user.isVerified()) {
+//                String email = user.getEmailAddress();
+//                emails.add(email);
+//            }
+//        }
+//        System.out.println(emails);
+//
+//        List<String> emails2 = users.stream()
+//                .filter(user -> !user.isVerified())
+//                .map(User::getEmailAddress)
+//                .collect(Collectors.toList());
+//        System.out.println(emails2);
 
         LocalDateTime now = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
         Order order1 = new Order()

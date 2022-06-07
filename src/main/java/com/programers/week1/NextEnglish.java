@@ -30,8 +30,6 @@ public class NextEnglish {
             wordEnd = words[i].charAt(words[i].length()-1);
         }
 
-        System.out.println(hashSet);
-
         return answer;
     }
 
